@@ -24,13 +24,13 @@ if ( empty( $result ) || $customizing ) {
 if ( $result ):
 	$menu = $result;
 ?>
-	<nav class="navbar navbar-toggleable-md navbar-mainsite py-2<?php echo $image ? ' py-sm-4 navbar-inverse header-gradient' : ' navbar-inverse bg-inverse-t-3 py-lg-4'; ?>" aria-label="Site navigation">
+	<nav class="navbar navbar-toggleable-md navbar-mainsite py-2<?php echo $image ? ' py-sm-4 navbar-inverse header-gradient' : ' navbar-inverse bg-inverse py-lg-4'; ?>" aria-label="Site navigation">
 		<div class="container">
 			<button class="navbar-toggler ml-auto collapsed" type="button" data-toggle="collapse" data-target="#header-menu" aria-controls="header-menu" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-text">Navigation</span>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="header-menu">
+			<div class="collapse navbar-collapse bg-inverse" id="header-menu">
 				<ul id="menu-header-menu" class="nav navbar-nav nav-fill">
 					<?php foreach ( $menu->items as $item ): ?>
 					<li class="menu-item nav-item">

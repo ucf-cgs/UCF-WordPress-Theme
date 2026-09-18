@@ -8,6 +8,11 @@ $header_height       = get_field( 'page_header_height', $obj );
 $exclude_nav         = get_field( 'page_header_exclude_nav', $obj );
 ?>
 
+<?php
+// Keep site navigation on its own solid background above the header media.
+if ( ! $exclude_nav ) { echo ucfwp_get_nav_markup( false ); }
+?>
+
 <div class="header-media <?php echo $header_height; ?> mb-0 d-flex flex-column">
 	<div class="header-media-background-wrap">
 		<div class="header-media-background media-background-container">
@@ -23,11 +28,6 @@ $exclude_nav         = get_field( 'page_header_exclude_nav', $obj );
 			?>
 		</div>
 	</div>
-
-	<?php
-	// Display the site nav
-	if ( !$exclude_nav ) { echo ucfwp_get_nav_markup(); }
-	?>
 
 	<?php
 	// Display the inner header contents
