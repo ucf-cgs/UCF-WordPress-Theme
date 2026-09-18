@@ -49,6 +49,25 @@
   }
 }
 
+// Size the separate navigation and fullscreen media as one header.
+.header-media-layout-fullscreen {
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(90vh - #{$ucf-header-height});
+
+    > .navbar {
+      flex: 0 0 auto;
+    }
+
+    > .header-media-fullscreen {
+      flex: 1 0 auto;
+      height: auto;
+      min-height: 0;
+    }
+  }
+}
+
 .header-media-background-wrap {
   bottom: 0;
   left: 0;
@@ -126,6 +145,13 @@
 .navbar-mainsite {
   z-index: 3;
 
+  > .container {
+    @include media-breakpoint-down(md) {
+      // Anchor the expanded menu to the navbar, including its padding.
+      position: static;
+    }
+  }
+
   .navbar-toggler {
     flex: 0 0 auto;
     max-width: 100%;
@@ -144,13 +170,8 @@
       left: 0;
       position: absolute;
       right: 0;
-      top: $nav-height;
+      top: 100%;
       z-index: 1;
-    }
-
-    @include media-breakpoint-down(xs) {
-      left: -$navbar-padding-x;
-      right: -$navbar-padding-x;
     }
 
     &.collapse.show,

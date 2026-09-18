@@ -6,7 +6,12 @@ $video_loop = get_field( 'page_header_video_loop', $obj );
 $header_content_type = ucfwp_get_header_content_type( $obj );
 $header_height       = get_field( 'page_header_height', $obj );
 $exclude_nav         = get_field( 'page_header_exclude_nav', $obj );
+$is_fullscreen       = $header_height === 'header-media-fullscreen';
 ?>
+
+<?php if ( $is_fullscreen ): ?>
+<div class="header-media-layout-fullscreen">
+<?php endif; ?>
 
 <?php
 // Keep site navigation on its own solid background above the header media.
@@ -47,3 +52,7 @@ if ( ! $exclude_nav ) { echo ucfwp_get_nav_markup( false ); }
 	<div class="header-media-controlfix"></div>
 	<?php endif; ?>
 </div>
+
+<?php if ( $is_fullscreen ): ?>
+</div>
+<?php endif; ?>
